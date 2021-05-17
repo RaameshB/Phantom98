@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/raameshb/Documents/Phantome 97/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-in/values-in.xml",
+            "map": [
+                {
+                    "source": "/home/raameshb/.gradle/caches/transforms-2/files-2.1/8378acb87c72f41d156e4f38198b2090/support-compat-28.0.0/res/values-in/values-in.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

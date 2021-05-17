@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/raameshb/Documents/Phantome 97/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
+            "map": [
+                {
+                    "source": "/home/raameshb/.gradle/caches/transforms-2/files-2.1/52cbf6e0bf047c38cdf3d2a2c60bbd12/RobotCore-release/res/values-v14/values-v14.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "201"
+                    }
+                }
+            ]
+        }
+    ]
+}
