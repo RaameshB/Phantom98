@@ -1,2 +1,6 @@
 org/firstinspires/ftc/teamcode/BuildConfig.java
  org.firstinspires.ftc.teamcode.BuildConfig
+org/firstinspires/ftc/teamcode/RobotConfiguration.java
+ org.firstinspires.ftc.teamcode.RobotConfiguration
+org/firstinspires/ftc/teamcode/BasicLinearTeleOp.java
+ org.firstinspires.ftc.teamcode.BasicLinearTeleOp
