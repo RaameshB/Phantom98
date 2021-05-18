@@ -81,7 +81,7 @@ public class BasicLinearTeleOp extends LinearOpMode {
                 the motors, basically makes the front the back and the back the front. It is
                 triggered when the "a" button on the controller is pressed.
                  */
-                robot.reverse();
+                robot.directionSwap();
             }
             if(gamepad1.b) {
                 /*

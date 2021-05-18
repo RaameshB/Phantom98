@@ -29,10 +29,29 @@ public class RobotConfiguration {
         leftDrive.setPower(0);
         rightDrive.setPower(0);
     }
-
+    public boolean s = false;
     public void swapMotors() {
-        leftDrive = hwMap.get(DcMotor.class, "RM");
-        rightDrive = hwMap.get(DcMotor.class, "LM");
+        if (s) {
+            leftDrive = hwMap.get(DcMotor.class, "LM");
+            rightDrive = hwMap.get(DcMotor.class, "RM");
+            s = false;
+        } else {
+            leftDrive = hwMap.get(DcMotor.class, "RM");
+            rightDrive = hwMap.get(DcMotor.class, "LM");
+            s = true;
+        }
+
+    }
+
+    public boolean r;
+    public void directionSwap() {
+        if (r) {
+            forward();
+            r = false;
+        } else {
+            reverse();
+            r = true;
+        }
     }
 
     public void reverse() {
