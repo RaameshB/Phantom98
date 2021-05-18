@@ -1,6 +1,2 @@
-org/firstinspires/ftc/teamcode/OurFirstTeleop1.java
- org.firstinspires.ftc.teamcode.OurFirstTeleop1
-org/firstinspires/ftc/teamcode/SampleAutonomous.java
- org.firstinspires.ftc.teamcode.SampleAutonomous
 org/firstinspires/ftc/teamcode/BuildConfig.java
  org.firstinspires.ftc.teamcode.BuildConfig
