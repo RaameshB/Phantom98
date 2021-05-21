@@ -72,6 +72,7 @@ public class BasicLinearTeleOp extends RobotConfiguration {
                 triggered when the "a" button on the controller is pressed.
                  */
                 directionSwap();
+                sleep(500);
             }
             if(gamepad1.b) {
                 /*
@@ -82,6 +83,7 @@ public class BasicLinearTeleOp extends RobotConfiguration {
                 is triggered if the "b" button is pressed.
                  */
                 swapMotors();
+                sleep(500);
             }
 
             /*
