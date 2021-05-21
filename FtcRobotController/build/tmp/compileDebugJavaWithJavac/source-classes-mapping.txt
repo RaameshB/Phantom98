@@ -1,3 +1,5 @@
+org/firstinspires/ftc/robotcontroller/external/samples/ConceptVuforiaUltimateGoalNavigation.java
+ org.firstinspires.ftc.robotcontroller.external.samples.ConceptVuforiaUltimateGoalNavigation
 org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveByGyro_Linear.java
  org.firstinspires.ftc.robotcontroller.external.samples.PushbotAutoDriveByGyro_Linear
 org/firstinspires/ftc/robotcontroller/external/samples/SensorDigitalTouch.java
@@ -37,8 +39,6 @@ org/firstinspires/ftc/robotcontroller/external/samples/ConceptSoundsSKYSTONE.jav
  org.firstinspires.ftc.robotcontroller.external.samples.ConceptSoundsSKYSTONE$1
 org/firstinspires/ftc/robotcontroller/external/samples/SensorDIO.java
  org.firstinspires.ftc.robotcontroller.external.samples.SensorDIO
-org/firstinspires/ftc/robotcontroller/external/samples/ConceptVuforiaSkyStoneNavigationWebcam.java
- org.firstinspires.ftc.robotcontroller.external.samples.ConceptVuforiaSkyStoneNavigationWebcam
 org/firstinspires/ftc/robotcontroller/external/samples/SensorBNO055IMUCalibration.java
  org.firstinspires.ftc.robotcontroller.external.samples.SensorBNO055IMUCalibration
  org.firstinspires.ftc.robotcontroller.external.samples.SensorBNO055IMUCalibration$1
@@ -47,15 +47,9 @@ org/firstinspires/ftc/robotcontroller/external/samples/SensorBNO055IMUCalibratio
  org.firstinspires.ftc.robotcontroller.external.samples.SensorBNO055IMUCalibration$4
  org.firstinspires.ftc.robotcontroller.external.samples.SensorBNO055IMUCalibration$5
  org.firstinspires.ftc.robotcontroller.external.samples.SensorBNO055IMUCalibration$6
-org/firstinspires/ftc/robotcontroller/external/samples/SensorREVColorDistance.java
- org.firstinspires.ftc.robotcontroller.external.samples.SensorREVColorDistance
- org.firstinspires.ftc.robotcontroller.external.samples.SensorREVColorDistance$1
- org.firstinspires.ftc.robotcontroller.external.samples.SensorREVColorDistance$2
 org/firstinspires/ftc/robotcontroller/external/samples/ConceptTelemetry.java
  org.firstinspires.ftc.robotcontroller.external.samples.ConceptTelemetry
  org.firstinspires.ftc.robotcontroller.external.samples.ConceptTelemetry$1
-org/firstinspires/ftc/robotcontroller/external/samples/ConceptVuforiaSkyStoneNavigation.java
- org.firstinspires.ftc.robotcontroller.external.samples.ConceptVuforiaSkyStoneNavigation
 org/firstinspires/ftc/robotcontroller/external/samples/PushbotTeleopPOV_Linear.java
  org.firstinspires.ftc.robotcontroller.external.samples.PushbotTeleopPOV_Linear
 org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveByEncoder_Linear.java
@@ -64,12 +58,12 @@ org/firstinspires/ftc/robotcontroller/external/samples/ConceptTensorFlowObjectDe
  org.firstinspires.ftc.robotcontroller.external.samples.ConceptTensorFlowObjectDetection
 org/firstinspires/ftc/robotcontroller/external/samples/ConceptRampMotorSpeed.java
  org.firstinspires.ftc.robotcontroller.external.samples.ConceptRampMotorSpeed
-org/firstinspires/ftc/robotcontroller/external/samples/ConceptTensorFlowObjectDetectionWebcam.java
- org.firstinspires.ftc.robotcontroller.external.samples.ConceptTensorFlowObjectDetectionWebcam
 org/firstinspires/ftc/robotcontroller/external/samples/ConceptVuMarkIdentificationWebcam.java
  org.firstinspires.ftc.robotcontroller.external.samples.ConceptVuMarkIdentificationWebcam
 org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveByTime_Linear.java
  org.firstinspires.ftc.robotcontroller.external.samples.PushbotAutoDriveByTime_Linear
+org/firstinspires/ftc/robotcontroller/external/samples/ConceptTensorFlowObjectDetectionWebcam.java
+ org.firstinspires.ftc.robotcontroller.external.samples.ConceptTensorFlowObjectDetectionWebcam
 org/firstinspires/ftc/robotcontroller/external/samples/ConceptVuforiaNavigationWebcam.java
  org.firstinspires.ftc.robotcontroller.external.samples.ConceptVuforiaNavigationWebcam
  org.firstinspires.ftc.robotcontroller.external.samples.ConceptVuforiaNavigationWebcam$1
@@ -85,6 +79,8 @@ org/firstinspires/ftc/robotcontroller/external/samples/ConceptRevSPARKMini.java
  org.firstinspires.ftc.robotcontroller.external.samples.ConceptRevSPARKMini
 org/firstinspires/ftc/robotcontroller/external/samples/ConceptSoundsASJava.java
  org.firstinspires.ftc.robotcontroller.external.samples.ConceptSoundsASJava
+org/firstinspires/ftc/robotcontroller/external/samples/ConceptVuforiaUltimateGoalNavigationWebcam.java
+ org.firstinspires.ftc.robotcontroller.external.samples.ConceptVuforiaUltimateGoalNavigationWebcam
 org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Linear.java
  org.firstinspires.ftc.robotcontroller.external.samples.BasicOpMode_Linear
 org/firstinspires/ftc/robotcontroller/external/samples/HardwarePushbot.java

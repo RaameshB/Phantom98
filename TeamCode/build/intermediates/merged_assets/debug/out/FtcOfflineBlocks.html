@@ -44,6 +44,7 @@
   <script type="text/javascript" src="blocks/bno055imu_parameters.js"></script>
   <script type="text/javascript" src="blocks/clipboard_util.js"></script>
   <script type="text/javascript" src="blocks/color.js"></script>
+  <script type="text/javascript" src="blocks/color_range_sensor.js"></script>
   <script type="text/javascript" src="blocks/color_sensor.js"></script>
   <script type="text/javascript" src="blocks/compass_sensor.js"></script>
   <script type="text/javascript" src="blocks/cr_servo.js"></script>
@@ -60,7 +61,7 @@
   <script type="text/javascript" src="blocks/led.js"></script>
   <script type="text/javascript" src="blocks/light_sensor.js"></script>
   <script type="text/javascript" src="blocks/linear_op_mode.js"></script>
-  <script type="text/javascript" src="blocks/lynx_i2c_color_range_sensor.js"></script>
+  <script type="text/javascript" src="blocks/locale.js"></script>
   <script type="text/javascript" src="blocks/magnetic_flux.js"></script>
   <script type="text/javascript" src="blocks/matrix_f.js"></script>
   <script type="text/javascript" src="blocks/misc.js"></script>
@@ -83,6 +84,8 @@
   <script type="text/javascript" src="blocks/telemetry.js"></script>
   <script type="text/javascript" src="blocks/temperature.js"></script>
   <script type="text/javascript" src="blocks/tfod.js"></script>
+  <script type="text/javascript" src="blocks/tfod_current_game.js"></script>
+  <script type="text/javascript" src="blocks/tfod_custom_model.js"></script>
   <script type="text/javascript" src="blocks/tfod_recognition.js"></script>
   <script type="text/javascript" src="blocks/tfod_rover_ruckus.js"></script>
   <script type="text/javascript" src="blocks/tfod_sky_stone.js"></script>
@@ -94,6 +97,7 @@
   <script type="text/javascript" src="blocks/velocity.js"></script>
   <script type="text/javascript" src="blocks/voltage_sensor.js"></script>
   <script type="text/javascript" src="blocks/vuforia.js"></script>
+  <script type="text/javascript" src="blocks/vuforia_current_game.js"></script>
   <script type="text/javascript" src="blocks/vuforia_localizer.js"></script>
   <script type="text/javascript" src="blocks/vuforia_localizer_parameters.js"></script>
   <script type="text/javascript" src="blocks/vuforia_relic_recovery.js"></script>
@@ -140,6 +144,11 @@
         Group:&nbsp;<input type="text" id="project_group" class="not_bold" oninput="projectGroupChanged()">
         &nbsp;
         <input type="checkbox" id="project_enabled" class="project_row_checkbox" onclick="projectEnabledChanged()">&nbsp;Enabled
+        &nbsp;
+        &nbsp;
+        <span id="project_autoTransition_label" style="display: none;">Preselect TeleOp:</span>
+        <select id="project_autoTransition" class="not_bold" style="width: 150px; display: none;" onchange="projectAutoTransitionChanged()">
+        </select>
       </td>
       <td align="right">
         <input type="checkbox" id="show_java" class="project_row_checkbox" onclick="showJavaChanged()">&nbsp;Show Java&nbsp;&nbsp;
