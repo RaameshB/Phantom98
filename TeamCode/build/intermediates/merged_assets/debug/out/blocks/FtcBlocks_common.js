@@ -1,4 +1,21 @@
 /**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * @fileoverview functions used in both FtcBlocks.html and FtcOfflineBlocks.html
  * @author lizlooney@google.com (Liz Looney)
  */
@@ -13,6 +30,7 @@ function initializeFtcBlocks() {
 
       initializeBlockly();
       initializeToolbox();
+      initializeAutoTransitionSelect();
 
       setTimeout(function() {
         initializeBlocks();
@@ -21,6 +39,23 @@ function initializeFtcBlocks() {
       alert(errorMessage);
     }
   });
+}
+
+function initializeAutoTransitionSelect() {
+  // AUTO_TRANSITION_OPTIONS is generated dynamically in HardwareUtil.fetchJavaScriptForHardware().
+  var autoTransitionSelect = document.getElementById('project_autoTransition');
+  // First add a blank option.
+  const option = document.createElement('option');
+  option.value = '';
+  option.text = '';
+  autoTransitionSelect.add(option);
+  // Then add the generated options, which are the names of the TeleOp op modes.
+  for (var i = 0; i < AUTO_TRANSITION_OPTIONS.length; i++) {
+    const option = document.createElement('option');
+    option.value = AUTO_TRANSITION_OPTIONS[i];
+    option.text = AUTO_TRANSITION_OPTIONS[i];
+    autoTransitionSelect.add(option);
+  }
 }
 
 function initializeBlocks() {
@@ -114,7 +149,8 @@ function projectEnabledChanged() {
 }
 
 /**
- * Saves the workspace blocks (including OpMode flavor, group, enable) and generated javascript.
+ * Saves the workspace blocks (including OpMode flavor, group, autoTransition, enable) and
+ * generated javascript.
  * Called from Save button onclick.
  */
 function saveButtonClicked() {
@@ -169,7 +205,9 @@ function saveProjectNow(opt_success_callback) {
       var flavorSelect = document.getElementById('project_flavor');
       var flavor = flavorSelect.options[flavorSelect.selectedIndex].value;
       var group = document.getElementById('project_group').value;
-      var blkFileContent = blocksContent + formatExtraXml(flavor, group, projectEnabled);
+      var autoTransitionSelect = document.getElementById('project_autoTransition');
+      var autoTransition = autoTransitionSelect.options[autoTransitionSelect.selectedIndex].value;
+      var blkFileContent = blocksContent + formatExtraXml(flavor, group, autoTransition, projectEnabled);
       saveProject(currentProjectName, blkFileContent, jsFileContent,
           function(success, errorMessage) {
         if (success) {
@@ -321,6 +359,9 @@ function initializeBlockly() {
     // Check blocks.
     var blockIds = [];
     switch (event.type) {
+      case Blockly.Events.FINISHED_LOADING:
+        blocksFinishedLoading = true;
+        break;
       case Blockly.Events.BLOCK_CREATE:
         Array.prototype.push.apply(blockIds, event.ids);
         break;
@@ -356,7 +397,9 @@ function initializeBlockly() {
         }
       }
     }
-    showJava();
+    if (blocksFinishedLoading) {
+      showJava();
+    }
   });
 }
 
@@ -399,7 +442,26 @@ function loadBlocks(blkFileContent, opt_blocksLoaded_callback) {
     }
   }
   document.getElementById('project_group').value = extra['group'];
+  var foundAutoTransition = false;
+  if (extra['autoTransition']) {
+    var autoTransitionSelect = document.getElementById('project_autoTransition');
+    for (var i = 0; i < autoTransitionSelect.options.length; i++) {
+      if (autoTransitionSelect.options[i].value == extra['autoTransition']) {
+        foundAutoTransition = true;
+        autoTransitionSelect.selectedIndex = i;
+        break;
+      }
+    }
+  } else {
+    foundAutoTransition = true;
+  }
+  setAutoTransitionDisplay();
   document.getElementById('project_enabled').checked = extra['enabled'];
+
+  if (!foundAutoTransition) {
+    alert('The Op Mode named "' + extra['autoTransition'] + '" was previously chosen as the ' +
+        'Preselect TeleOp. There is currently no TeleOp Op Mode with that name.');
+  }
 
   loadBlocksIntoWorkspace(blocksContent, opt_blocksLoaded_callback);
   checkDownloadImageFeature();
@@ -504,13 +566,14 @@ function checkBlock(block, missingHardware) {
           var visibleIdentifierName;
           if (block.data) {
             if (block.data.startsWith('{')) {
-              var visibleIdentifierNames = JSON.parse(block.data);
+              var visibleIdentifierNames = parseBlockDataJSON(block);
               visibleIdentifierName = visibleIdentifierNames[identifierFieldName];
             } else {
+              // Some older versions save as plain text instead of JSON.
               visibleIdentifierName = block.data;
             }
           } else {
-            // If the blocks file is older, we don't know what the visible name actually is.
+            // If the blocks file is even older, we don't know what the visible name actually is.
             // The best we can do is to remove the hardware identifier suffix if there is one.
             visibleIdentifierName = removeHardwareIdentifierSuffix(identifierFieldValue);
           }
@@ -549,9 +612,9 @@ function checkBlock(block, missingHardware) {
       warningBits |= WarningBits.RELIC_RECOVERY;
       warningText = addWarning(warningText,
           'This block is optimized for Relic Recovery (2017-2018) and will not work correctly ' +
-          'for SKYSTONE (2019-2020).\n\n' +
-          'Please replace this block with the corresponding one from the Optimized for SKYSTONE ' +
-          'toolbox category.');
+          'for other FTC games.\n\n' +
+          'Please replace this block with the corresponding one from the ' +
+          'Optimized for ' + currentGameName + ' toolbox category.');
     } else if (block.type == 'vuforiaRoverRuckus_initialize_withCameraDirection' ||
         block.type == 'vuforiaRoverRuckus_initialize_withWebcam' ||
         block.type == 'vuforiaRoverRuckus_activate' ||
@@ -568,9 +631,18 @@ function checkBlock(block, missingHardware) {
       warningBits |= WarningBits.ROVER_RUCKUS;
       warningText = addWarning(warningText,
           'This block is optimized for Rover Ruckus (2018-2019) and will not work correctly ' +
-          'for SKYSTONE (2019-2020).\n\n' +
-          'Please replace this block with the corresponding one from the Optimized for SKYSTONE ' +
-          'toolbox category.');
+          'for other FTC games.\n\n' +
+          'Please replace this block with the corresponding one from the ' +
+          'Optimized for ' + currentGameName + ' toolbox category.');
+    } else if (block.type == 'misc_callJava_return' ||
+        block.type == 'misc_callJava_noReturn') {
+      if (!methodLookupStrings.includes(block.methodLookupString_)) {
+        warningBits |= WarningBits.MISSING_METHOD;
+        warningText = addWarning(warningText,
+            'This block refers to a Java method that has been changed or removed. It will not ' +
+            'work correctly.\n\n' +
+            'Please replace or remove this block, or restore the Java method it refers to.');
+      }
     }
 
     // If warningText is null, the following will clear a previous warning.
@@ -612,10 +684,18 @@ function removeHardwareIdentifierSuffix(identifierFieldValue) {
   return identifierFieldValue;
 }
 
-function saveBlockWarningHidden(block) {
-  var data = (block.data && block.data.startsWith('{'))
-      ? JSON.parse(block.data) : null;
+function parseBlockDataJSON(block) {
+  if (block.data && block.data.startsWith('{')) {
+    try {
+      return JSON.parse(block.data);
+    } catch (err) {
+    }
+  }
+  return null;
+}
 
+function saveBlockWarningHidden(block) {
+  var data = parseBlockDataJSON(block);
   if (block.warning) {
     if (!block.warning.isVisible()) {
       if (!data) {
@@ -633,8 +713,8 @@ function saveBlockWarningHidden(block) {
 }
 
 function readBlockWarningHidden(block) {
-  if (block.data && block.data.startsWith('{')) {
-    var data = JSON.parse(block.data);
+  var data = parseBlockDataJSON(block);
+  if (data) {
     if (data.block_warning_hidden) {
       return true;
     }
@@ -644,8 +724,7 @@ function readBlockWarningHidden(block) {
 }
 
 function saveVisibleIdentifiers(block) {
-  var data = (block.data && block.data.startsWith('{'))
-      ? JSON.parse(block.data) : null;
+  var data = parseBlockDataJSON(block);
 
   for (var iFieldName = 0; iFieldName < identifierFieldNames.length; iFieldName++) {
     var identifierFieldName = identifierFieldNames[iFieldName];
@@ -658,7 +737,10 @@ function saveVisibleIdentifiers(block) {
         if (!data) {
           data = Object.create(null);
         }
-        data[identifierFieldName] = field.getText();
+        // field.getText() returns the text with spaces changed to non-breakable spaces \u00A0.
+        // Here we change them back to normal spaces. Without this, the character becomes &nbsp; in
+        // the blk file when saved with Safari.
+        data[identifierFieldName] = field.getText().replace(/\u00A0/g, ' ');
       }
     }
   }
@@ -864,10 +946,26 @@ function isExternal(url) {
 }
 
 function projectFlavorChanged() {
+  isDirty = true;
+  setAutoTransitionDisplay();
   showJava();
 }
 
+function setAutoTransitionDisplay() {
+  var flavorSelect = document.getElementById('project_flavor');
+  var flavor = flavorSelect.options[flavorSelect.selectedIndex].value;
+  var display = (flavor == 'AUTONOMOUS') ? 'inline-block' : 'none';
+  document.getElementById('project_autoTransition_label').style.display = display;
+  document.getElementById('project_autoTransition').style.display = display;
+}
+
 function projectGroupChanged() {
+  isDirty = true;
+  showJava();
+}
+
+function projectAutoTransitionChanged() {
+  isDirty = true;
   showJava();
 }
 

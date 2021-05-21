@@ -14,7 +14,7 @@
 
   <!-- Bootstrap -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
-  <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="blocks/images.css">
@@ -76,6 +76,7 @@
       "blocks/bno055imu_parameters.js",
       "blocks/clipboard_util.js",
       "blocks/color.js",
+      "blocks/color_range_sensor.js",
       "blocks/color_sensor.js",
       "blocks/compass_sensor.js",
       "blocks/cr_servo.js",
@@ -92,7 +93,7 @@
       "blocks/led.js",
       "blocks/light_sensor.js",
       "blocks/linear_op_mode.js",
-      "blocks/lynx_i2c_color_range_sensor.js",
+      "blocks/locale.js",
       "blocks/magnetic_flux.js",
       "blocks/matrix_f.js",
       "blocks/misc.js",
@@ -115,6 +116,8 @@
       "blocks/telemetry.js",
       "blocks/temperature.js",
       "blocks/tfod.js",
+      "blocks/tfod_current_game.js",
+      "blocks/tfod_custom_model.js",
       "blocks/tfod_recognition.js",
       "blocks/tfod_rover_ruckus.js",
       "blocks/tfod_sky_stone.js",
@@ -126,6 +129,7 @@
       "blocks/velocity.js",
       "blocks/voltage_sensor.js",
       "blocks/vuforia.js",
+      "blocks/vuforia_current_game.js",
       "blocks/vuforia_localizer.js",
       "blocks/vuforia_localizer_parameters.js",
       "blocks/vuforia_relic_recovery.js",
@@ -179,6 +183,11 @@
         Group:&nbsp;<input type="text" id="project_group" class="not_bold" oninput="projectGroupChanged()">
         &nbsp;
         <input type="checkbox" id="project_enabled" class="project_row_checkbox" onclick="projectEnabledChanged()">&nbsp;Enabled
+        &nbsp;
+        &nbsp;
+        <span id="project_autoTransition_label" style="display: none;">Preselect TeleOp:</span>
+        <select id="project_autoTransition" class="not_bold" style="width: 150px; display: none;" onchange="projectAutoTransitionChanged()">
+        </select>
       </td>
       <td align="right">
         <input type="checkbox" id="show_java" class="project_row_checkbox" onclick="showJavaChanged()">&nbsp;Show Java&nbsp;&nbsp;
@@ -230,6 +239,7 @@
   // sheets for us. Otherwise, blocklyArea appears incorrectly sized. So, simply, we wait.
   less.pageLoadFinished.then(function() {
     loadBlocklyScripts(function() {
+      Blockly.prompt = parent.showPrompt; // https://blockly-demo.appspot.com/static/demos/custom-dialogs/index.html
       initializeFtcBlocks();
     });
   });
