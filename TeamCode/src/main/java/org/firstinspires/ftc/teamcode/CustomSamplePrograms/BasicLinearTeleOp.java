@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Disabled //comment out this line if you want to run this
+//@Disabled //comment out this line if you want to run this
 
 //We tell the app that this is a TeleOp here, we also give it a name here as well.
 @TeleOp(group = "Tele-Op", name = "ExampleLinearTeleOp")
@@ -18,13 +18,14 @@ loops need to have a proper interrupt or the apps will crash (which has some iss
 to restart them, which isn't a problem in normal testing but in the heat of competition this can
 cause serious delays in switching to the autonomous programs.
  */
-public class BasicLinearTeleOp extends RobotConfiguration {
+public class BasicLinearTeleOp extends LinearOpMode {
 
     /*
     We use object oriented programing here, the idea here is that you write the same initialization
     scripts for basically every program, so the RobotConfiguration class has some universal
     functions that are commonly used.
      */
+    RobotConfiguration robot = new RobotConfiguration();
 
     /*
     The runOpMode() function is specific to the LinearOpMode class. The robot will run the contents
@@ -47,7 +48,7 @@ public class BasicLinearTeleOp extends RobotConfiguration {
         function that exists so you don't have to write all of those lines for every program you
         create.
          */
-        init(hardwareMap);
+        robot.init(hardwareMap);
 
         /*
         Another function from LinearOpMode, this waits until the start button is pressed after the
@@ -71,7 +72,7 @@ public class BasicLinearTeleOp extends RobotConfiguration {
                 the motors, basically makes the front the back and the back the front. It is
                 triggered when the "a" button on the controller is pressed.
                  */
-                directionSwap();
+                robot.directionSwap();
                 sleep(500);
             }
             if(gamepad1.b) {
@@ -82,7 +83,7 @@ public class BasicLinearTeleOp extends RobotConfiguration {
                 testing your TeleOp. So you can test what you need to and fix this issue later. This
                 is triggered if the "b" button is pressed.
                  */
-                swapMotors();
+                robot.swapMotors();
                 sleep(500);
             }
 
@@ -91,8 +92,8 @@ public class BasicLinearTeleOp extends RobotConfiguration {
              */
             telemetry.addData("leftPower: ",  leftPower);
             telemetry.addData("rightPower: ", rightPower);
-            telemetry.addData("s", s);
-            telemetry.addData("r", r);
+            telemetry.addData("s", robot.s);
+            telemetry.addData("r", robot.r);
             telemetry.update();
 
             /*
@@ -101,8 +102,8 @@ public class BasicLinearTeleOp extends RobotConfiguration {
             but that's a bit more complex and this is only an example program.
              */
 
-            leftDrive.setPower(leftPower/2);
-            rightDrive.setPower(rightPower/2);
+            robot.leftDrive.setPower(leftPower/2);
+            robot.rightDrive.setPower(rightPower/2);
 
             /*
             We add a sleep for 50 ms here. This is usually not necessary but for more complex TelOps
