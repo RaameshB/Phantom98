@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-//@Disabled //comment out this line if you want to run this
+@Disabled //comment out this line if you want to run this
 
 //We tell the app that this is a TeleOp here, we also give it a name here as well.
 @TeleOp(group = "Tele-Op", name = "ExampleLinearTeleOp")
