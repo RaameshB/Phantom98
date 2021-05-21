@@ -89,6 +89,8 @@ public class BasicLinearTeleOp extends RobotConfiguration {
              */
             telemetry.addData("leftPower: ",  leftPower);
             telemetry.addData("rightPower: ", rightPower);
+            telemetry.addData("s", s);
+            telemetry.addData("r", r);
             telemetry.update();
 
             /*
