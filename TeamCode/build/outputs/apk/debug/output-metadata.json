@@ -10,8 +10,8 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 35,
-      "versionName": "5.3",
+      "versionCode": 40,
+      "versionName": "6.2",
       "outputFile": "TeamCode-debug.apk"
     }
   ]
