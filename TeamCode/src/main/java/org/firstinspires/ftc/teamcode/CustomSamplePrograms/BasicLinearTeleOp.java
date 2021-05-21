@@ -73,6 +73,7 @@ public class BasicLinearTeleOp extends LinearOpMode {
                 triggered when the "a" button on the controller is pressed.
                  */
                 robot.directionSwap();
+                robot.stopMotors();
                 sleep(500);
             }
             if(gamepad1.b) {
@@ -84,6 +85,7 @@ public class BasicLinearTeleOp extends LinearOpMode {
                 is triggered if the "b" button is pressed.
                  */
                 robot.swapMotors();
+                robot.stopMotors();
                 sleep(500);
             }
 
