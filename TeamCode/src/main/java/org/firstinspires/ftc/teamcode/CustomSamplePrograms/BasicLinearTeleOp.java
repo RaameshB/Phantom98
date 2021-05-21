@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Disabled //comment out this line if you want to run this
+//@Disabled //comment out this line if you want to run this
 
 //We tell the app that this is a TeleOp here, we also give it a name here as well.
 @TeleOp(group = "Tele-Op", name = "ExampleLinearTeleOp")
@@ -18,14 +18,13 @@ loops need to have a proper interrupt or the apps will crash (which has some iss
 to restart them, which isn't a problem in normal testing but in the heat of competition this can
 cause serious delays in switching to the autonomous programs.
  */
-public class BasicLinearTeleOp extends LinearOpMode {
+public class BasicLinearTeleOp extends RobotConfiguration {
 
     /*
     We use object oriented programing here, the idea here is that you write the same initialization
     scripts for basically every program, so the RobotConfiguration class has some universal
     functions that are commonly used.
      */
-    RobotConfiguration robot = new RobotConfiguration();
 
     /*
     The runOpMode() function is specific to the LinearOpMode class. The robot will run the contents
@@ -48,16 +47,7 @@ public class BasicLinearTeleOp extends LinearOpMode {
         function that exists so you don't have to write all of those lines for every program you
         create.
          */
-        robot.init(hardwareMap);
-
-        /*
-        Another thing using object oriented programing. Instead of writing robot.leftDrive or
-        robot.rightDrive every single time we need to use the motors, we just create two new
-        variables and set them to the same things as the old ones. It works the same way but less
-        things to type.
-         */
-        DcMotor leftDrive = robot.leftDrive;
-        DcMotor rightDrive = robot.rightDrive;
+        init(hardwareMap);
 
         /*
         Another function from LinearOpMode, this waits until the start button is pressed after the
@@ -81,7 +71,7 @@ public class BasicLinearTeleOp extends LinearOpMode {
                 the motors, basically makes the front the back and the back the front. It is
                 triggered when the "a" button on the controller is pressed.
                  */
-                robot.directionSwap();
+                directionSwap();
             }
             if(gamepad1.b) {
                 /*
@@ -91,14 +81,22 @@ public class BasicLinearTeleOp extends LinearOpMode {
                 testing your TeleOp. So you can test what you need to and fix this issue later. This
                 is triggered if the "b" button is pressed.
                  */
-                robot.swapMotors();
+                swapMotors();
             }
+
+            /*
+            Prints out left power and right power to the app's console
+             */
+            telemetry.addData("leftPower: ",  leftPower);
+            telemetry.addData("rightPower: ", rightPower);
+            telemetry.update();
 
             /*
             Set the power to 1/2 the input. I can't verify the traction of the wheels so to prevent
             them from spinning out this is there. Normally you'd implement an acceleration algorithm
             but that's a bit more complex and this is only an example program.
              */
+
             leftDrive.setPower(leftPower/2);
             rightDrive.setPower(rightPower/2);
 
