@@ -6,16 +6,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-public class RobotConfiguration extends LinearOpMode {
+public class RobotConfiguration {
     public DcMotor leftDrive = null;
     public DcMotor rightDrive = null;
 
     HardwareMap hwMap = null;
-
-    @Override
-    public void runOpMode() throws InterruptedException {
-
-    }
 
     public void init(HardwareMap ahwmp) {
         hwMap = ahwmp;
