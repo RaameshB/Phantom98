@@ -1,6 +1,6 @@
-org/firstinspires/ftc/teamcode/CustomSamplePrograms/RobotConfiguration.java
- org.firstinspires.ftc.teamcode.CustomSamplePrograms.RobotConfiguration
-org/firstinspires/ftc/teamcode/CustomSamplePrograms/BasicLinearTeleOp.java
- org.firstinspires.ftc.teamcode.CustomSamplePrograms.BasicLinearTeleOp
+org/firstinspires/ftc/teamcode/MecanumLibs/BasicLinearTeleOp.java
+ org.firstinspires.ftc.teamcode.MecanumLibs.BasicLinearTeleOp
 org/firstinspires/ftc/teamcode/BuildConfig.java
  org.firstinspires.ftc.teamcode.BuildConfig
+org/firstinspires/ftc/teamcode/MecanumLibs/RobotConfiguration.java
+ org.firstinspires.ftc.teamcode.MecanumLibs.RobotConfiguration
