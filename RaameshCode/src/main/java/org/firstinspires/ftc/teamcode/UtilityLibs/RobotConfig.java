@@ -30,7 +30,7 @@ public class RobotConfig {
     public DcMotor backLeft;
     public DcMotor backRight;
 
-    BNO055IMU imu;
+    public BNO055IMU imu;
 
     public void init() {
 
@@ -86,10 +86,14 @@ public class RobotConfig {
         frontRight.setZeroPowerBehavior(behaviour);
     }
 
-    Orientation angles;
+    public Orientation angles;
 
     boolean stopper = false;
     boolean stopped = true;
+
+    double degX;
+    double degY;
+    double degZ;
 
     Thread thread = new Thread() {
         @Override
@@ -99,6 +103,9 @@ public class RobotConfig {
                 telemetry.modData("X: ", angles.firstAngle);
                 telemetry.modData("Y: ", angles.secondAngle);
                 telemetry.modData("Z: ", angles.thirdAngle);
+                degX = angles.firstAngle;
+                degY = angles.secondAngle;
+                degZ = angles.thirdAngle;
             }
             stopped = true;
         }
