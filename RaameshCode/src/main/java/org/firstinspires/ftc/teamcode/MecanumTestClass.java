@@ -1,22 +1,20 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-import org.firstinspires.ftc.teamcode.UtilityLibs.MecanumLibs.MecanumHelper;
-import org.firstinspires.ftc.teamcode.UtilityLibs.RobotConfig;
-import org.firstinspires.ftc.teamcode.UtilityLibs.TelemetryHelper;
+import org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.PhantomOpMode;
+import org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.chassisType;
 
-public class MecanumTestClass extends LinearOpMode {
-
-    TelemetryHelper telemetry = new TelemetryHelper(this);
-    RobotConfig robot = new RobotConfig(hardwareMap, this, telemetry);
-    MecanumHelper driveTrain = new MecanumHelper(robot, telemetry, this);
-
+@Autonomous (name = "MecanumTestClass")
+public class MecanumTestClass extends PhantomOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
-        robot.init();
-        robot.calibrate();
+        setChassis(chassisType.MECANUM);
+        initialize();
+        calibrateImu();
         waitForStart();
-        driveTrain.drive(90, 1, 0.2);
+        chassis.drive(90, 1, 0.2);
+        sleep(2000);
+        chassis.stopMotors();
     }
 }

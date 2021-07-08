@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.UtilityLibs;
+package org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 

@@ -15,6 +15,7 @@ MERGED from [org.firstinspires.ftc:RobotCore:6.2.1] /home/raameshb/.gradle/cache
 MERGED from [org.firstinspires.ftc:tfod:1.0.2] /home/raameshb/.gradle/caches/transforms-2/files-2.1/f8450e11db31270aec52a2c12f2aed08/jetified-tfod-1.0.2/AndroidManifest.xml:2:1-11:12
 MERGED from [org.tensorflow:tensorflow-lite:1.10.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/1a3483541ca0dfdd01478ac6c944c46e/jetified-tensorflow-lite-1.10.0/AndroidManifest.xml:2:1-6:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/f9db3af1d4b21c0f8eaed47c1558f861/appcompat-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [org.openftc:easyopencv:1.4.4] /home/raameshb/.gradle/caches/transforms-2/files-2.1/bb0f213aa2ca4d7c5ef0827c1e9664e8/jetified-easyopencv-1.4.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.fragment:fragment:1.1.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/032eb938a427bd5a63079beb47771091/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/b9204796e7e567996b1d6e9b487b57da/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/868c4b7ee3ddc9bf7e171c26bc1832bd/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -34,6 +35,7 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /home/raameshb/.gradle/ca
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/0f9f9612216e1658ded37de1f7493c8e/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/db70915db5482881b82db5efafd295dc/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/e8a9ba95fcf0cc98ab87a4d17d4050b7/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [org.openftc:opencv-repackaged:4.1.0-C] /home/raameshb/.gradle/caches/transforms-2/files-2.1/6fb7da847bd0f148d3fd579397b5a0e1/jetified-opencv-repackaged-4.1.0-C/AndroidManifest.xml:2:1-11:12
 INJECTED from /home/raameshb/Documents/GitRepos/Phantom98/RaameshCode/src/main/AndroidManifest.xml:8:1-12:12
 INJECTED from /home/raameshb/Documents/GitRepos/Phantom98/RaameshCode/src/main/AndroidManifest.xml:8:1-12:12
 INJECTED from /home/raameshb/Documents/GitRepos/Phantom98/RaameshCode/src/main/AndroidManifest.xml:8:1-12:12
@@ -111,6 +113,8 @@ MERGED from [org.firstinspires.ftc:tfod:1.0.2] /home/raameshb/.gradle/caches/tra
 MERGED from [org.firstinspires.ftc:tfod:1.0.2] /home/raameshb/.gradle/caches/transforms-2/files-2.1/f8450e11db31270aec52a2c12f2aed08/jetified-tfod-1.0.2/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/f9db3af1d4b21c0f8eaed47c1558f861/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/f9db3af1d4b21c0f8eaed47c1558f861/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [org.openftc:easyopencv:1.4.4] /home/raameshb/.gradle/caches/transforms-2/files-2.1/bb0f213aa2ca4d7c5ef0827c1e9664e8/jetified-easyopencv-1.4.4/AndroidManifest.xml:7:5-9:41
+MERGED from [org.openftc:easyopencv:1.4.4] /home/raameshb/.gradle/caches/transforms-2/files-2.1/bb0f213aa2ca4d7c5ef0827c1e9664e8/jetified-easyopencv-1.4.4/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.fragment:fragment:1.1.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/032eb938a427bd5a63079beb47771091/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/032eb938a427bd5a63079beb47771091/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/b9204796e7e567996b1d6e9b487b57da/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
@@ -149,6 +153,8 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/raameshb/.g
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/db70915db5482881b82db5efafd295dc/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/e8a9ba95fcf0cc98ab87a4d17d4050b7/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/raameshb/.gradle/caches/transforms-2/files-2.1/e8a9ba95fcf0cc98ab87a4d17d4050b7/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [org.openftc:opencv-repackaged:4.1.0-C] /home/raameshb/.gradle/caches/transforms-2/files-2.1/6fb7da847bd0f148d3fd579397b5a0e1/jetified-opencv-repackaged-4.1.0-C/AndroidManifest.xml:7:5-9:41
+MERGED from [org.openftc:opencv-repackaged:4.1.0-C] /home/raameshb/.gradle/caches/transforms-2/files-2.1/6fb7da847bd0f148d3fd579397b5a0e1/jetified-opencv-repackaged-4.1.0-C/AndroidManifest.xml:7:5-9:41
 INJECTED from /home/raameshb/Documents/GitRepos/Phantom98/RaameshCode/src/main/AndroidManifest.xml
 INJECTED from /home/raameshb/Documents/GitRepos/Phantom98/RaameshCode/src/main/AndroidManifest.xml
 	android:targetSdkVersion

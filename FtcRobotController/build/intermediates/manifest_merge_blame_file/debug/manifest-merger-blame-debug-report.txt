@@ -8,7 +8,7 @@
 8    <uses-sdk
 9        android:minSdkVersion="23"
 9-->/home/raameshb/Documents/GitRepos/Phantom98/FtcRobotController/src/main/AndroidManifest.xml
-10        android:targetSdkVersion="28" />
+10        android:targetSdkVersion="30" />
 10-->/home/raameshb/Documents/GitRepos/Phantom98/FtcRobotController/src/main/AndroidManifest.xml
 11
 12    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
