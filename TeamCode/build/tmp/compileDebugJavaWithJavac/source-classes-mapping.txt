@@ -1,6 +1,24 @@
-org/firstinspires/ftc/teamcode/CustomSamplePrograms/RobotConfiguration.java
- org.firstinspires.ftc.teamcode.CustomSamplePrograms.RobotConfiguration
-org/firstinspires/ftc/teamcode/CustomSamplePrograms/BasicLinearTeleOp.java
- org.firstinspires.ftc.teamcode.CustomSamplePrograms.BasicLinearTeleOp
+org/firstinspires/ftc/teamcode/UtilityLibs/HelperClasses/RobotConfig.java
+ org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.RobotConfig
+ org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.RobotConfig$1
+ org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.RobotConfig$2
+org/firstinspires/ftc/teamcode/UtilityLibs/HelperClasses/PhantomOpMode.java
+ org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.PhantomOpMode
+org/firstinspires/ftc/teamcode/BasicPushBotTeleOp.java
+ org.firstinspires.ftc.teamcode.BasicPushBotTeleOp
+org/firstinspires/ftc/teamcode/UtilityLibs/HelperClasses/Stopwatch.java
+ org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.Stopwatch
+org/firstinspires/ftc/teamcode/UtilityLibs/HelperClasses/chassisType.java
+ org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.chassisType
+org/firstinspires/ftc/teamcode/BasicPushBotAuto.java
+ org.firstinspires.ftc.teamcode.BasicPushBotAuto
+org/firstinspires/ftc/teamcode/BasicMecanumAuto.java
+ org.firstinspires.ftc.teamcode.BasicMecanumAuto
+org/firstinspires/ftc/teamcode/UtilityLibs/HelperClasses/TelemetryHelper.java
+ org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.TelemetryHelper
+ org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.TelemetryHelper$1
 org/firstinspires/ftc/teamcode/BuildConfig.java
  org.firstinspires.ftc.teamcode.BuildConfig
+org/firstinspires/ftc/teamcode/UtilityLibs/MecanumLibs/MecanumHelper.java
+ org.firstinspires.ftc.teamcode.UtilityLibs.MecanumLibs.MecanumHelper
+ org.firstinspires.ftc.teamcode.UtilityLibs.MecanumLibs.MecanumHelper$1

@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/raameshb/Documents/GitRepos/Phantom98/RaameshCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
+            "map": [
+                {
+                    "source": "/home/raameshb/.gradle/caches/transforms-2/files-2.1/27c03848a1cb8a0c1e5137fc7bd84db5/jetified-RobotCore-6.2.1/res/values-v14/values-v14.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "201"
+                    }
+                }
+            ]
+        }
+    ]
+}
