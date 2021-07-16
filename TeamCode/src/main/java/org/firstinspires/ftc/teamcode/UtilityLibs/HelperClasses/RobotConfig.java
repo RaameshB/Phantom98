@@ -139,7 +139,7 @@ public class RobotConfig {
     double degY;
     double degZ;
 
-    Thread thread = new Thread() {
+    protected class Helpering extends Thread {
         @Override
         public void run() {
             stopped = false;
@@ -153,27 +153,50 @@ public class RobotConfig {
             }
             stopped = true;
         }
-    };
+    }
+
+    Helpering thread = new Helpering();
 
     public void calibrate() {
         imu = hwMap.get(BNO055IMU.class, "imu");
 
+        ln.telemetry.addLine("got to point 1.1");
+        ln.telemetry.update();
+
         BNO055IMU.Parameters para = new BNO055IMU.Parameters();
         para.angleUnit = BNO055IMU.AngleUnit.DEGREES;
 
+        ln.telemetry.addLine("got to point 1.2");
+        ln.telemetry.update();
+
         angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+
+        ln.telemetry.addLine("got to point 1.3");
+        ln.telemetry.update();
 
         imu.initialize(para);
 
         telemetry.addLine("Gyro Calibrating...");
 
+        ln.telemetry.addLine("got to point 1.4");
+        ln.telemetry.update();
+
         while (!imu.isGyroCalibrated());
 
+        ln.telemetry.addLine("got to point 1.5");
+        ln.telemetry.update();
+
         telemetry.modLine("Gyro Calibrating...", "Gyro Calibration Complete! This message will disappear in 2 seconds.");
+
+        ln.telemetry.addLine("got to point 1.6");
+        ln.telemetry.update();
 
         ln.sleep(2000);
 
         telemetry.removeLine("Gyro Calibration Complete! This message will disappear in 2 seconds.");
+
+        ln.telemetry.addLine("got to point 1.7");
+        ln.telemetry.update();
 
     }
 

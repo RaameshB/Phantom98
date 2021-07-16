@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.PhantomOpMode;
 
 //Comment out this line if you want to run the program
+//@Disabled
 @Disabled
-
 //List this program as an autonomous with the name "BasicPushBotAuto"
 @Autonomous(name = "BasicPushBotAuto")
 
@@ -15,7 +15,7 @@ public class BasicPushBotAuto extends PhantomOpMode {
 
     //The code in this function are the commands that are sent to the robot
     @Override
-    public void runOpMode() throws InterruptedException {
+    public void runOpMode() throws InterruptedException{
 
         //Initialize the robot's motors using PhantomOpMode magic
         robot.init();

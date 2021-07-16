@@ -6,13 +6,14 @@ import org.firstinspires.ftc.teamcode.UtilityLibs.MecanumLibs.MecanumHelper;
 
 public abstract class PhantomOpMode extends LinearOpMode {
 
-
-    TelemetryHelper telemetry = new TelemetryHelper(this);
-    public RobotConfig robot = new RobotConfig(hardwareMap, this, telemetry);
+    public LinearOpMode haha = this;
+    public TelemetryHelper telemetry = new TelemetryHelper(this);
+    public RobotConfig robot;
     public MecanumHelper chassis;
     public Stopwatch stopwatch = new Stopwatch(this);
 
     public void setChassis(chassisType type){
+        robot =  new RobotConfig(hardwareMap, this, telemetry);
         robot.robotType = type;
         if (type == chassisType.MECANUM) {
              chassis = new MecanumHelper(robot, telemetry, this);
@@ -20,6 +21,5 @@ public abstract class PhantomOpMode extends LinearOpMode {
     }
     @Override
     public void runOpMode() throws InterruptedException {
-
     }
 }
