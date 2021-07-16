@@ -2,6 +2,9 @@ package org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.robotcore.internal.opmode.TelemetryImpl;
+
 import java.util.ArrayList;
 
 public class TelemetryHelper {
@@ -29,17 +32,6 @@ public class TelemetryHelper {
     }
 
     int i = 0;
-
-    void compose() {
-        length = captionsAndLines.size() - 1;
-        while (i < length) {
-            if(dataPts.get(i) != ""){
-                ln.telemetry.addData(captionsAndLines.get(i), dataPts.get(i));
-            } else {
-                ln.telemetry.addLine(captionsAndLines.get(i));
-            }
-        }
-    }
 
     public void addData(String caption, Object data) {
 //        if (captionsAndLines.contains(caption)) {
@@ -99,12 +91,23 @@ public class TelemetryHelper {
     }
 
     protected class helperThing extends Thread{
+        Telemetry tel = new TelemetryImpl(ln);
         @Override
         public void run() {
             while(!telemEnabled);
             while (!ln.isStopRequested()) {
                 compose();
-                ln.telemetry.update();
+                tel.update();
+            }
+        }
+        void compose() {
+            length = captionsAndLines.size() - 1;
+            while (i < length) {
+                if(dataPts.get(i) != ""){
+                    tel.addData(captionsAndLines.get(i), dataPts.get(i));
+                } else {
+                    tel.addLine(captionsAndLines.get(i));
+                }
             }
         }
     }

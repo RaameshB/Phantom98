@@ -18,6 +18,9 @@ public class BasicPushBotTeleOp extends PhantomOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
 
+        //Tell that you are using a pushbot
+        setChassis(chassisType.PUSHBOT);
+
         //Code that automagically finds your motors if they are named RM and LM
         robot.init();
 

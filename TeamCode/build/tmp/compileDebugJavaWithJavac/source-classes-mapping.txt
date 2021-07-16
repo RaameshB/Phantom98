@@ -14,6 +14,8 @@ org/firstinspires/ftc/teamcode/BasicPushBotAuto.java
  org.firstinspires.ftc.teamcode.BasicPushBotAuto
 org/firstinspires/ftc/teamcode/BasicMecanumAuto.java
  org.firstinspires.ftc.teamcode.BasicMecanumAuto
+org/firstinspires/ftc/teamcode/coddddeeee.java
+ org.firstinspires.ftc.teamcode.coddddeeee
 org/firstinspires/ftc/teamcode/UtilityLibs/HelperClasses/TelemetryHelper.java
  org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.TelemetryHelper
  org.firstinspires.ftc.teamcode.UtilityLibs.HelperClasses.TelemetryHelper$helperThing

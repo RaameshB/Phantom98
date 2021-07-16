@@ -123,6 +123,7 @@ public class RobotConfig {
         switch (robotType) {
             case PUSHBOT:
                 rightMotor.setZeroPowerBehavior(behaviour);
+                leftMotor.setZeroPowerBehavior(behaviour);
         }
         frontRight.setZeroPowerBehavior(behaviour);
         frontLeft.setZeroPowerBehavior(behaviour);
@@ -198,6 +199,32 @@ public class RobotConfig {
         ln.telemetry.addLine("got to point 1.7");
         ln.telemetry.update();
 
+    }
+
+    public Orientation             lastAngles = new Orientation();
+    public double globalAngle;
+
+    public double getAngle() {
+        // We experimentally determined the Y axis is the axis we want to use for heading angle.
+        // We have to process the angle because the imu works in euler angles so the Z axis is
+        // returned as 0 to +180 or 0 to -180 rolling back to -179 or +179 when rotation passes
+        // 180 degrees. We detect this transition and track the total cumulative angle of rotation.
+
+        Orientation angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+
+        double deltaAngle = angles.firstAngle - lastAngles.firstAngle;
+
+        if (deltaAngle < -180) {
+            deltaAngle += 360;
+        }
+        else if (deltaAngle > 180) {
+            deltaAngle -= 360;
+        }
+        globalAngle += deltaAngle;
+
+        lastAngles = angles;
+
+        return globalAngle;
     }
 
     public void enableImuTelemetry() {
